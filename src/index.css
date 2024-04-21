@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*GIống như css, khai báo class để dùng chugn*/
+@layer components {
+  .input {
+    @apply w-3/4
+  }
+
+  /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(colors.yellow.500) 0 0);
+    background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+    background-size: 20% 50%;
+    animation: loading 1s infinite linear;
+  }
+
+  @keyframes loading {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
